@@ -11,14 +11,14 @@ export const Globalcss = createGlobalStyle`
 
   .containerMedium{
     max-width: 600px;
-    width: 100%;
+    widht: 100%;
     margin: 0 auto;
     padding: 40px 0;
   }
 
   .containerLarge {
     max-width: 1024px;
-    width: 100%;
+    widht: 100%;
     margin: 0 auto;
 }
 
@@ -35,5 +35,6 @@ export const Globalcss = createGlobalStyle`
 `
 export const cores = {
   vermelho: '#E66767',
-  bege: '#FFEBD9'
+  bege: '#FFEBD9',
+  branco: '#FFFFFF'
 }

@@ -1,5 +1,12 @@
-import { Header, Hero, LinkRestaurantes } from './styles'
+import {
+  HeaderContainer,
+  Hero,
+  LinkRestaurantes,
+  Header,
+  HeroContainer
+} from './styles'
 import eFoodLogo from '../../assets/images/logo.png'
+import { capitalizeFirstLetter } from '../../components/Restaurant'
 
 export type Props = {
   name: string
@@ -10,15 +17,19 @@ export type Props = {
 const HeaderProducts = ({ imagem, category, name }: Props) => (
   <>
     <Header>
-      <LinkRestaurantes to={'/'}>Restaurantes</LinkRestaurantes>
-      <h1>
-        <img src={eFoodLogo} alt="" />
-      </h1>
-      <p>0 produto(s) no carrinho</p>
+      <HeaderContainer className="containerLarge">
+        <LinkRestaurantes to={'/'}>Restaurantes</LinkRestaurantes>
+        <h1>
+          <img src={eFoodLogo} alt="" />
+        </h1>
+        <p>0 produto(s) no carrinho</p>
+      </HeaderContainer>
     </Header>
     <Hero style={{ backgroundImage: `url(${imagem})` }}>
-      <p>{category}</p>
-      <h2>{name}</h2>
+      <HeroContainer className="containerLarge">
+        <p>{capitalizeFirstLetter(category!)}</p>
+        <h2>{name}</h2>
+      </HeroContainer>
     </Hero>
   </>
 )

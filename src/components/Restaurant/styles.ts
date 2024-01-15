@@ -17,8 +17,8 @@ export const Card = styled.div`
 
   p {
     margin: 16px 0;
-    height: 100px;
     overflow-y: auto;
+    font-size: 14px;
   }
 `
 export const Infos = styled.div`
@@ -40,6 +40,9 @@ export const Rating = styled.div`
 export const Title = styled.div`
   display: flex;
   justify-content: space-between;
+  h2 {
+    font-size: 18px;
+  }
   @media (max-width: 780px) {
     h2 {
       font-size: 18px;
@@ -48,12 +51,21 @@ export const Title = styled.div`
 `
 export const CardDescription = styled.div`
   padding: 8px;
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid ${cores.vermelho};
   border-left: 1px solid ${cores.vermelho};
   border-bottom: 1px solid ${cores.vermelho};
+  p {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `
 export const Botao = styled(Link)`
+  width: 88px;
+  text-align: center;
   text-decoration: none;
+  font-size: 14px;
   font-weight: bold;
   background-color: ${cores.vermelho};
   color: ${cores.bege};
