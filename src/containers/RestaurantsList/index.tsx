@@ -13,10 +13,14 @@ const RestaurantsList = ({ restaurants }: Props) => {
   return (
     <>
       <ListContainer className="containerLarge">
-        {restaurants.map((r) => (
+        {[
+          ...restaurants.filter((r) => r.destacado),
+          ...restaurants.filter((r) => !r.destacado)
+        ].map((r) => (
           <RestaurantCard
             key={r.id}
             name={r.titulo}
+            highlight={r.destacado}
             description={r.descricao}
             infos={r.tipo}
             image={r.capa}

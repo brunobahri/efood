@@ -5,6 +5,7 @@ import estrela from '../../assets/images/estrela.png'
 type Props = {
   name: string
   description: string
+  highlight: boolean | undefined
   image: string
   rating: number
   infos: string
@@ -17,6 +18,7 @@ export const capitalizeFirstLetter = (string: string) =>
 const RestaurantCard = ({
   name,
   description,
+  highlight,
   image,
   rating,
   infos,
@@ -25,6 +27,7 @@ const RestaurantCard = ({
   <Card>
     <img src={image} alt="teste" />
     <Infos>
+      {highlight ? <Tag>Destaque da semana</Tag> : null}
       <Tag>{capitalizeFirstLetter(infos)}</Tag>
     </Infos>
     <CardDescription>

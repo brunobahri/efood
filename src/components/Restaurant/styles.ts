@@ -23,12 +23,9 @@ export const Card = styled.div`
 `
 export const Infos = styled.div`
   position: absolute;
+  display: flex;
   top: 16px;
   right: 16px;
-
-  ${TagContainer} {
-    margin-left: 8px;
-  }
 `
 export const Rating = styled.div`
   display: flex;
