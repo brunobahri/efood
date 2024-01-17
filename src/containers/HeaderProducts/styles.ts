@@ -43,7 +43,13 @@ export const Hero = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
 `
+export const Overlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+`
+
 export const HeroContainer = styled.div`
   color: #ffffff;
   padding: 24px 0 32px 0px;

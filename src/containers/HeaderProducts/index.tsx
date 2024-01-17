@@ -3,7 +3,8 @@ import {
   Hero,
   LinkRestaurantes,
   Header,
-  HeroContainer
+  HeroContainer,
+  Overlay
 } from './styles'
 import eFoodLogo from '../../assets/images/logo.png'
 import { capitalizeFirstLetter } from '../../components/Restaurant'
@@ -26,10 +27,12 @@ const HeaderProducts = ({ imagem, category, name }: Props) => (
       </HeaderContainer>
     </Header>
     <Hero style={{ backgroundImage: `url(${imagem})` }}>
-      <HeroContainer className="containerLarge">
-        <p>{capitalizeFirstLetter(category!)}</p>
-        <h2>{name}</h2>
-      </HeroContainer>
+      <Overlay>
+        <HeroContainer className="containerLarge">
+          <p>{capitalizeFirstLetter(category!)}</p>
+          <h2>{name}</h2>
+        </HeroContainer>
+      </Overlay>
     </Hero>
   </>
 )
