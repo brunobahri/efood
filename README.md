@@ -1,3 +1,6 @@
+Projeto baseado em um sistema de delivery de refeições, utilizando integração com a API para validação dos pagamentos.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
