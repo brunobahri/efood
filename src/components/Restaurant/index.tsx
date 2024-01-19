@@ -1,47 +1,45 @@
 import Tag from '../Tag'
-import { Card, Infos, Rating, Title, CardDescription, Botao } from './styles'
 import estrela from '../../assets/images/estrela.png'
+
+import * as S from './styles'
 
 type Props = {
   name: string
   description: string
-  highlight: boolean | undefined
+  highlight: boolean
   image: string
   rating: number
   infos: string
   link: string
 }
 
-export const capitalizeFirstLetter = (string: string) =>
-  string.charAt(0).toUpperCase() + string.slice(1)
-
 const RestaurantCard = ({
   name,
   description,
-  highlight,
   image,
   rating,
   infos,
-  link
+  link,
+  highlight
 }: Props) => (
-  <Card>
+  <S.Card>
     <img src={image} alt="teste" />
-    <Infos>
-      {highlight ? <Tag>Destaque da semana</Tag> : null}
-      <Tag>{capitalizeFirstLetter(infos)}</Tag>
-    </Infos>
-    <CardDescription>
-      <Title>
+    <S.Infos>
+      <Tag>{infos}</Tag>
+      {highlight && <Tag>Destaque da semana</Tag>}
+    </S.Infos>
+    <S.CardDescription>
+      <S.Title>
         <h2>{name}</h2>
-        <Rating>
+        <S.Rating>
           {rating}
           <img src={estrela} alt="" />
-        </Rating>
-      </Title>
+        </S.Rating>
+      </S.Title>
       <p>{description}</p>
-      <Botao to={link}>Saiba mais</Botao>
-    </CardDescription>
-  </Card>
+      <S.Botao to={link}>Saiba mais</S.Botao>
+    </S.CardDescription>
+  </S.Card>
 )
 
 export default RestaurantCard

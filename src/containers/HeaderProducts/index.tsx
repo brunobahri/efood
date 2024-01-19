@@ -1,39 +1,45 @@
-import {
-  HeaderContainer,
-  Hero,
-  LinkRestaurantes,
-  Header,
-  HeroContainer,
-  Overlay
-} from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+
 import eFoodLogo from '../../assets/images/logo.png'
-import { capitalizeFirstLetter } from '../../components/Restaurant'
+
+import * as S from './styles'
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 export type Props = {
   name: string
   category?: string
-  imagem?: string
+  image?: string
 }
 
-const HeaderProducts = ({ imagem, category, name }: Props) => (
-  <>
-    <Header>
-      <HeaderContainer className="containerLarge">
-        <LinkRestaurantes to={'/'}>Restaurantes</LinkRestaurantes>
-        <h1>
-          <img src={eFoodLogo} alt="" />
-        </h1>
-        <p>0 produto(s) no carrinho</p>
-      </HeaderContainer>
-    </Header>
-    <Hero style={{ backgroundImage: `url(${imagem})` }}>
-      <Overlay>
-        <HeroContainer className="containerLarge">
-          <p>{capitalizeFirstLetter(category!)}</p>
-          <h2>{name}</h2>
-        </HeroContainer>
-      </Overlay>
-    </Hero>
-  </>
-)
+const HeaderProducts = ({ image, category, name }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
+  return (
+    <>
+      <S.Header>
+        <S.HeaderContainer className="containerLarge">
+          <S.LinkRestaurantes to={'/'}>Restaurantes</S.LinkRestaurantes>
+          <h1>
+            <img src={eFoodLogo} alt="" />
+          </h1>
+          <S.Logo to={'/'}>
+            <img src={eFoodLogo} alt="" />
+          </S.Logo>
+          <p onClick={() => dispatch(open())}>
+            {items.length} produto(s) no carrinho
+          </p>
+        </S.HeaderContainer>
+      </S.Header>
+      <S.Hero style={{ backgroundImage: `url(${image})` }}>
+        <S.Overlay>
+          <S.HeroContainer className="containerLarge">
+            <p>{category}</p>
+            <h2>{name}</h2>
+          </S.HeroContainer>
+        </S.Overlay>
+      </S.Hero>
+    </>
+  )
+}
 export default HeaderProducts

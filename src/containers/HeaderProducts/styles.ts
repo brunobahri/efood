@@ -1,57 +1,64 @@
 import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import fundoHeader from '../../assets/images/fundo.png'
 
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   font-size: 18px;
 
   padding: 60px 0px;
   font-weight: bold;
 
-  @media (max-width: 1024px) {
-    padding: 4S0px 40px;
-  }
   @media (max-width: 670px) {
     display: flex;
     flex-direction: column;
     position: relative;
+
+    h1 > img {
+      display: none;
+    }
   }
 `
 export const Header = styled.div`
   background-image: url(${fundoHeader});
+  padding: 0 20px;
+
+  p {
+    cursor: pointer;
+  }
 `
+export const Logo = styled(Link)`
+  display: none;
+  margin-bottom: 8px;
+
+  @media (max-width: 670px) {
+    display: block;
+  }
+`
+
 export const LinkRestaurantes = styled(Link)`
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 
   @media (max-width: 780px) {
     margin-right: 60px;
   }
   @media (max-width: 670px) {
-    position: absolute;
-    left: 10px;
-    top: 10px;
+    display: none;
   }
 `
 export const Hero = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
 `
-export const Overlay = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-`
-
 export const HeroContainer = styled.div`
-  color: #ffffff;
+  color: ${colors.white};
   padding: 24px 0 32px 0px;
 
   p {
@@ -80,4 +87,8 @@ export const HeroContainer = styled.div`
       margin-top: 100px;
     }
   }
+`
+export const Overlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
 `
